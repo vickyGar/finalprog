@@ -1,0 +1,52 @@
+{%load staticfiles%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+
+
+
+</head>
+<body background="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThx_CuPkfCI1Rf8QMq2F5v4a1XrJq6gJAAUV43Ty6I_ottIHJQ6YMg_rPKM6Ra5W2j8Sg&usqp=CAU;">
+            <form  method="post" class="row g-3">
+                {% csrf_token %}
+              <div class="col-md-4"  >
+                <label for="inputEmail4" class="form-label"><font face="Explora" size="30" class="text-dark">Nombre</font></label>
+                <input alt=" " name="nombre" value="{{empleado.nombre}}" type="text" class="form-control" id="inputEmail4">
+              </div>
+              <div class="col-4">
+                <label for="inputAddress" class="form-label"><font face="Explora" size="30" class="text-dark">Apellido</font></label>
+                <input name="apellido" value="{{empleado.apellido}}" type="text" class="form-control" id="inputAddress" >
+              </div>
+                <div class="col-4">
+                <label for="inputAddress" class="form-label"><font face="Explora" size="30" class="text-dark">Equipo de Computo</font></label>
+                <input name="computo" value="{{empleado.computo}}" type="text" class="form-control" id="inputAddress" >
+              </div>
+              <br>
+              <br>
+              <div class="col">
+                <button align="center" type="submit" class="btn btn-primary"><font face="Explora" size="6" class="">Registrarse</font></button>
+              </div>
+            </form>
+            <div>
+                <br>
+                <br>
+                <div>
+                    <div class="btn-group">
+                    <a href="{%url 'web:table'%}"><button align="center" class="btn btn-primary"><font face="Explora" size="6" class="text-dark">Ver Empleados</font></button></a>
+
+                    </div>
+                </div>
+
+            </div>
+  <style>
+                    @import url('https://fonts.googleapis.com/css2?family=Explora&display=swap');
+               </style>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+</html>

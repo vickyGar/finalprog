@@ -1,0 +1,1 @@
+gunicorn DevFinal.wsgi --log-file

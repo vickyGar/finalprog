@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/e5d1bfa7b2.js" crossorigin="anonymous"></script>
+    <title>Tabla Empleados</title>
+</head>
+<body background="https://www.todofondos.net/wp-content/uploads/todofondos-colorespasteles2-576x1024.jpg;">    <!-- service_area_start  -->
+    <!--<form method="GET">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <input type="number" class="form-control" placeholder="Ingresa la Pk de Empleado" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="submit"><font face="Princess Sofia" size="5" class=""><i class="fas fa-search"></i></font></button>
+        </div>
+        </div>
+    </form> -->
+
+<!--TABLAS-->
+<h1 align="center"><font face="Explora" size="30" class="text-dark">Empleados</font></h1>
+    <br>
+    <br>
+  <table class="table">
+      {%if table%}
+  <thead>
+    <tr>
+        <th scope="col">Pk Empleado</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+        <th scope="col">Equipo de Computo</th>
+        <th scope="col">Opciones</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        {%for arraydemployee in table%}
+        <td>{{arraydemployee.pk_tabla}}</td>
+        <td>{{arraydemployee.nombre}}</td>
+        <td>{{arraydemployee.apellido}}</td>
+        <td>{{arraydemployee.computo}}</td>
+        <td>
+            <a href="{% url 'web:updateEmpleado' arraydemployee.pk_tabla  %}">
+                <button type="button" class="btn btn primary"><i class="fas fa-user-edit"></i></button>
+            </a>
+              <!-- Button trigger modal -->
+            <a>
+                <button type="button" class="btn btn primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{arraydemployee.pk_tabla}}">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </a>
+            <!-- Modal -->
+
+            <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal{{arraydemployee.pk_tabla}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel{{arraydemployee.pk_tabla}}">Eliminación de Empleado</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <div class="container">
+              <div class="row">
+                <i class="fas fa-exclamation-circle fa-7x text-center"></i>
+              </div>
+              <div class="row">
+                  <h3 class="text-center">Este es un mensaje de advertencia</h3>
+              </div>
+          </div>
+        </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancelar</button>
+        <br>
+            <a href="{% url 'web:deleteEmpleado' arraydemployee.pk_tabla  %}">
+            <button type="button" class="btn btn-warning">Eliminar</button>
+            </a>
+      </div>
+    </div>
+  </div>
+        </td>
+
+    </tr>
+    {%endfor%}
+    {%else%}
+    <br><h1>Nothing</h1><br/>
+    {%endif%}
+
+
+
+
+</div>
+  </tbody>
+
+</table>
+
+<a href="{%url 'web:index'%}"><button align="center" class="btn btn-primary"><font face="Explora" size="6" class="">Regresar</font></button></a>
+
+<!-- -->
+
+
+
+
+</body>
+
+  <style>
+        @import url('https://fonts.googleapis.com/css2?family=Explora&display=swap');
+  </style>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+</html>
